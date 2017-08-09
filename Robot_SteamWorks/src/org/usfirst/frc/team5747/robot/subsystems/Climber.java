@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Climber extends Subsystem {
 	
-	public static final double CLIMB_FAST_SPEED = 0.8;
+	public static final double CLIMB_FAST_SPEED = -0.8;
 	
     private SpeedController motor;
     

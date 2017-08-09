@@ -36,8 +36,8 @@ public class OI {
 
 	public void opreator() {
 		shootingButton.toggleWhenPressed(new ShootCommand(Shooter.SHOOTING_SPEED));
-		intakeButton.whenPressed(new FeederCommand(Feeder.INTAKE_SPEED));
-		climbButton.whenPressed(new ClimbCommand(Climber.CLIMB_FAST_SPEED));
+		intakeButton.whileHeld(new FeederCommand(Feeder.INTAKE_SPEED));
+		climbButton.whileHeld(new ClimbCommand(Climber.CLIMB_FAST_SPEED));
 	}
 
 	public void driverbuttons() {
@@ -52,5 +52,6 @@ public class OI {
 	public double getRotationDriver() {
 		return Driver.getRightX();
 	}
+	
 	
 }
