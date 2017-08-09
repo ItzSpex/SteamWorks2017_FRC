@@ -2,6 +2,7 @@
 package org.usfirst.frc.team5747.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Command;
@@ -10,6 +11,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team5747.robot.subsystems.Feeder;
 import org.usfirst.frc.team5747.robot.subsystems.Gear;
+import org.usfirst.frc.team5747.robot.subsystems.Omni;
 import org.usfirst.frc.team5747.robot.commands.Drive;
 import org.usfirst.frc.team5747.robot.commands.commandgroups.GearCenter;
 import org.usfirst.frc.team5747.robot.subsystems.Climber;
@@ -32,7 +34,7 @@ public class Robot extends IterativeRobot {
 	public static Feeder feeder;
 	public static Gear gear;
 	public static Climber climber;
-
+	public static Omni omni;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	
@@ -53,6 +55,8 @@ public class Robot extends IterativeRobot {
 				new VictorSP(RobotMap.PWM.GEAR_MOTOR));
 		climber = new Climber(
 				new TalonSRX(RobotMap.PWM.CLIMB_MOTOR));
+		omni = new Omni(
+				new Spark(RobotMap.PWM.OMNI_MOTOR));
 		oi = new OI();
 				
 		chooser.addDefault("Line", new Drive(Drivetrain.DRIVING_SPEED, Drivetrain.DRIVING_SPEED));
