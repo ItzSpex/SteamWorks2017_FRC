@@ -17,18 +17,18 @@ import edu.wpi.first.wpilibj.buttons.Button;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	private XboXUID Driver = new XboXUID(0);
-	private XboXUID Opreator = new XboXUID(1);
+	private XboXUID driver = new XboXUID(0);
+	private XboXUID opreator = new XboXUID(1);
 	private Button shootingButton;
 	private Button intakeButton;
 	private Button gearButton;
 	private Button climbButton;
 
 	public OI() {
-		shootingButton = Opreator.getLbButton();
-		intakeButton = Opreator.getGreenButton();
-		gearButton = Driver.getGreenButton();
-		climbButton = Opreator.getYellowButton();
+		shootingButton = opreator.getLbButton();
+		intakeButton = opreator.getGreenButton();
+		gearButton = driver.getGreenButton();
+		climbButton = opreator.getYellowButton();
 		opreator();
 		driverbuttons();
 
@@ -36,21 +36,29 @@ public class OI {
 
 	public void opreator() {
 		shootingButton.toggleWhenPressed(new ShootCommand(Shooter.SHOOTING_SPEED));
-		intakeButton.whenPressed(new FeederCommand(Feeder.INTAKE_SPEED));
-		climbButton.whenPressed(new ClimbCommand(Climber.CLIMB_FAST_SPEED));
+		intakeButton.whileHeld(new FeederCommand(Feeder.INTAKE_SPEED));
+		climbButton.whileHeld(new ClimbCommand(Climber.CLIMB_FAST_SPEED));
 	}
 
 	public void driverbuttons() {
 		gearButton.whileHeld(new GearCommand(Gear.GEAR_OPEN_FULL));
-		
+
 	}
 
 	public double getForwardDriver() {
-		return Driver.getLeftY();
+		return driver.getLeftY();
 	}
-	
+
 	public double getRotationDriver() {
-		return Driver.getRightX();
+		return driver.getRightX();
 	}
-	
+
+	public double getSidewaysRight() {
+		return driver.getRightOmni();
+	}
+
+	public double getSidewaysLeft() {
+		return driver.getLeftOmni();
+	}
+
 }

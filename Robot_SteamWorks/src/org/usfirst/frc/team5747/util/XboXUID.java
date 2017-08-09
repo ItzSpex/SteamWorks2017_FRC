@@ -6,26 +6,29 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 public class XboXUID extends Joystick {
 
-	static final int X_RIGHT = 6;
+	static final int X_RIGHT = 4;
 	static final int X_LEFT = 2;
-	static final int Y_RIGHT = 5;
+	static final int Y_RIGHT = 3;
 	static final int Y_LEFT = 1;
+	static final int OMNI_LEFT = 5;
+	static final int OMNI_RIGHT = 6;
+	
 
 	public XboXUID(int port) {
 		super(port);
 	}
 
 	public Button getGreenButton() {
-		return new JoystickButton(this, 2);
+		return new JoystickButton(this, 1);
 	}
 
 	public Button getBlueButton() {
-		return new JoystickButton(this, 1);
+		return new JoystickButton(this, 3);
 	}
 	
 
 	public Button getRedButton() {
-		return new JoystickButton(this, 3);
+		return new JoystickButton(this, 2);
 	}
 
 	public Button getYellowButton() {
@@ -55,6 +58,9 @@ public class XboXUID extends Joystick {
 	public double getRightY() {
 		return getRawAxis(Y_RIGHT);
 	}
+	public double getRightOmni() {
+		return getRawAxis(OMNI_RIGHT);
+	}
 
 	public double getLeftX() {
 		return getRawAxis(X_LEFT);
@@ -63,6 +69,10 @@ public class XboXUID extends Joystick {
 	public double getLeftY() {
 		return getY(); // Don't change this, for some reason it works
 	}
+	public double getLeftOmni() {
+		return getRawAxis(OMNI_LEFT);
+	}
+	
 
 	public Button getUpButton() {
 		return new Button() {
