@@ -17,9 +17,9 @@ public class Omni extends Subsystem {
 		this.motor = motor;
 	}
 	public void moveSideways(double rightSpeed, double leftSpeed) {
-		if (rightSpeed > 0) {
-			motor.set(rightSpeed);
-		}else if (leftSpeed < 0){
+		if (-rightSpeed < 0) {
+			motor.set(-rightSpeed);
+		}else if (leftSpeed > 0){
 			motor.set(leftSpeed);
 			}else if (rightSpeed == 0 && leftSpeed == 0) {
 				motor.set(0);

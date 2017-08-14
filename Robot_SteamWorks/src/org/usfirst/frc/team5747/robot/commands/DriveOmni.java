@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveOmni extends Command {
 	private Omni holonomicDrivetrain;
-	private Supplier<Double> speedXLeftSupplier , SpeedXRightSupplier;
+	private Supplier<Double> speedXLeftSupplier , speedXRightSupplier;
 
 	public DriveOmni(Omni drivetrain, double speedRightX, double speedLeftX) {
 		// Use requires() here to declare subsystem dependencieslier
@@ -26,7 +26,7 @@ public class DriveOmni extends Command {
 		requires(drivetrain);
 		this.holonomicDrivetrain = drivetrain;
 		this.speedXLeftSupplier = speedXLeftSupplier;
-		this.SpeedXRightSupplier = speedXRightSupplier;
+		this.speedXRightSupplier = speedXRightSupplier;
 
 	}
 
@@ -36,7 +36,7 @@ public class DriveOmni extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		holonomicDrivetrain.moveSideways(speedXLeftSupplier.get(), SpeedXRightSupplier.get());
+		holonomicDrivetrain.moveSideways(speedXRightSupplier.get(), speedXLeftSupplier.get());
 
 	}
 

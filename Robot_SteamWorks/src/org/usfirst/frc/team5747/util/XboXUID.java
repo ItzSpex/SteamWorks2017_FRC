@@ -7,11 +7,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class XboXUID extends Joystick {
 
 	static final int X_RIGHT = 4;
-	static final int X_LEFT = 2;
-	static final int Y_RIGHT = 3;
+	static final int X_LEFT = 0;
+	static final int Y_RIGHT = 5;
 	static final int Y_LEFT = 1;
-	static final int OMNI_LEFT = 5;
-	static final int OMNI_RIGHT = 6;
+	static final int OMNI_LEFT = 2;
+	static final int OMNI_RIGHT = 3;
 	
 
 	public XboXUID(int port) {
