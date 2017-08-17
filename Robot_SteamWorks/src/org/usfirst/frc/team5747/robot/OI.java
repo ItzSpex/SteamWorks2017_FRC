@@ -46,19 +46,19 @@ public class OI {
 	}
 
 	public double getForwardDriver() {
-		return driver.getLeftY();
+		return  Math.pow (driver.getLeftY(), 3);
 	}
 
 	public double getRotationDriver() {
-		return driver.getRightX();
+		return Math.pow(driver.getRightX(), 3);
 	}
 
 	public double getSidewaysRight() {
-		return driver.getRightOmni();
+		return Math.pow(driver.getRightOmni(), 3);
 	}
 
 	public double getSidewaysLeft() {
-		return driver.getLeftOmni();
+		return Math.pow(driver.getLeftOmni(), 3);
 	}
 
 }

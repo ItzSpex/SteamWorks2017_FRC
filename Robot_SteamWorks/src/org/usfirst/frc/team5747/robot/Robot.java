@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import org.usfirst.frc.team5747.robot.subsystems.Feeder;
 import org.usfirst.frc.team5747.robot.subsystems.Gear;
 import org.usfirst.frc.team5747.robot.subsystems.Omni;
-import org.usfirst.frc.team5747.robot.commands.Drive;
 import org.usfirst.frc.team5747.robot.commands.commandgroups.GearCenter;
+import org.usfirst.frc.team5747.robot.commands.commandgroups.Line;
 import org.usfirst.frc.team5747.robot.subsystems.Climber;
 import org.usfirst.frc.team5747.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team5747.robot.subsystems.Shooter;
@@ -59,7 +59,7 @@ public class Robot extends IterativeRobot {
 				new Spark(RobotMap.PWM.OMNI_MOTOR));
 		oi = new OI();
 				
-		chooser.addDefault("Line", new Drive(Drivetrain.DRIVING_SPEED, Drivetrain.DRIVING_SPEED));
+		chooser.addDefault("Line", new Line());
 		chooser.addObject("Gear Center",new GearCenter());
 		
 	}

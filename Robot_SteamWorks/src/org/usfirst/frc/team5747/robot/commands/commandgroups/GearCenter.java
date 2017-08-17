@@ -15,6 +15,5 @@ public class GearCenter extends CommandGroup {
     public GearCenter() {
         addSequential(new Drive(DRIVE_SPEED,DRIVE_SPEED), 3);
         addSequential(new GearCommand(Gear.GEAR_OPEN_FULL));
-        addSequential(new Drive(-DRIVE_SPEED,-DRIVE_SPEED), 3);
     }
 }

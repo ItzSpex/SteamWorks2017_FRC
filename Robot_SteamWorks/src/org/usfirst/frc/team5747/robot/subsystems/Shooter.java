@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Shooter extends Subsystem {
-	public static final double SHOOTING_SPEED = 0.8;
+	public static final double SHOOTING_SPEED = 1;
     private SpeedController wheelMotor;
     
     
