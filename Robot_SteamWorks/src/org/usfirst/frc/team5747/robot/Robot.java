@@ -2,13 +2,15 @@
 package org.usfirst.frc.team5747.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.PWMTalonSRX;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.TalonSRX;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc.team5747.robot.subsystems.Feeder;
 import org.usfirst.frc.team5747.robot.subsystems.Gear;
 import org.usfirst.frc.team5747.robot.subsystems.Omni;
@@ -46,7 +48,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		drivetrain = new Drivetrain(
-				new TalonSRX(RobotMap.PWM.DRIVE_LEFT_MOTOR), new TalonSRX(RobotMap.PWM.DRIVE_RIGHT_MOTOR));
+				new PWMTalonSRX(RobotMap.PWM.DRIVE_LEFT_MOTOR), new PWMTalonSRX(RobotMap.PWM.DRIVE_RIGHT_MOTOR));
 		shooter = new Shooter(
 				new VictorSP(RobotMap.PWM.WHEEL_MOTOR));
 		feeder = new Feeder(
@@ -54,14 +56,14 @@ public class Robot extends IterativeRobot {
 		gear = new Gear(
 				new VictorSP(RobotMap.PWM.GEAR_MOTOR));
 		climber = new Climber(
-				new TalonSRX(RobotMap.PWM.CLIMB_MOTOR));
+				new PWMTalonSRX(RobotMap.PWM.CLIMB_MOTOR));
 		omni = new Omni(
 				new Spark(RobotMap.PWM.OMNI_MOTOR));
 		oi = new OI();
 				
 		chooser.addDefault("Line", new Line());
 		chooser.addObject("Gear Center",new GearCenter());
-		
+		SmartDashboard.putData("Auto mode",chooser);
 	}
 
 	/**
